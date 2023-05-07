@@ -13,6 +13,7 @@ class ProfessionalApproachController extends Controller
     public function show($id)
     {
         $works = Work::findOrFail($id);
+        dd($works);
         $images = Image::where('work_id', $id)->get();
         $services = Service::all();
         return response()->view('front.professional-approach', compact('images', 'works', 'services'));
